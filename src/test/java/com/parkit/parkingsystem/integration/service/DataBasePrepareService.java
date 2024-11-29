@@ -37,8 +37,7 @@ public class DataBasePrepareService {
         try (
                 Connection con = dataBaseTestConfig.getConnection();
                 Statement stmt = con.createStatement()
-        )
-            {
+        ) {
             String sql = String.format(
                     "insert into ticket(PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME) values(%d, '%s', %d, '%s', %s)",
                     1,

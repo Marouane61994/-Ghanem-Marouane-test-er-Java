@@ -14,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
-
 import static junit.framework.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
@@ -50,7 +49,7 @@ public class ParkingDataBaseIT {
     @AfterAll
     public static void tearDown() {
 
-         dataBasePrepareService.clearDataBaseEntries();
+        dataBasePrepareService.clearDataBaseEntries();
     }
 
     @Test
@@ -90,8 +89,6 @@ public class ParkingDataBaseIT {
         assertNotNull(ticket);
         assertTrue(ticket.getPrice() > 0.0);
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
-
-        //TODO: check that the fare generated and out time are populated correctly in the database
     }
 
     @Test
