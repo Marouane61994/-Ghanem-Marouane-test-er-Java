@@ -103,5 +103,6 @@ public class ParkingDataBaseIT {
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
         assertEquals(1.5*0.95,ticket.getPrice(),0.001);
         assertTrue(ticketDAO.getNbTicket(vehicleRegNumber) > 1);
+        assertFalse(ticket.getParkingSpot().isAvailable());
     }
 }
