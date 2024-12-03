@@ -24,7 +24,6 @@ import org.mockito.quality.Strictness;
 import java.util.Date;
 
 
-
 import static org.mockito.Mockito.*;
 
 
@@ -136,7 +135,6 @@ public class ParkingServiceTest {
 
         verify(inputReaderUtil).readSelection();
         verify(parkingSpotDAO).getNextAvailableSlot(any(ParkingType.class));
-
     }
 
     @Test
@@ -150,14 +148,13 @@ public class ParkingServiceTest {
 
     @Test
     public void testProcessExitingVehicleWithInvalidRegistrationNumber() throws Exception {
-            when(inputReaderUtil.readVehicleRegistrationNumber()).thenThrow(new IllegalArgumentException("Invalid vehicle registration number"));
+        when(inputReaderUtil.readVehicleRegistrationNumber()).thenThrow(new IllegalArgumentException("Invalid vehicle registration number"));
 
-            parkingService.processExitingVehicle();
+        parkingService.processExitingVehicle();
 
-            verify(ticketDAO, never()).getTicket(anyString());
-            verify(ticketDAO, never()).getNbTicket(anyString());
-            verify(ticketDAO, never()).updateTicket(any(Ticket.class));
-            verify(parkingSpotDAO, never()).updateParking(any(ParkingSpot.class));
+        verify(ticketDAO, never()).getTicket(anyString());
+        verify(ticketDAO, never()).getNbTicket(anyString());
+        verify(ticketDAO, never()).updateTicket(any(Ticket.class));
+        verify(parkingSpotDAO, never()).updateParking(any(ParkingSpot.class));
     }
-
 }
