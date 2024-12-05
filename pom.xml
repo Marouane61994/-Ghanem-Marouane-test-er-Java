@@ -125,6 +125,16 @@
                     </execution>
                     <execution>
                         <id>jacoco-report</id>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/App.*</exclude>
+                                <exclude>**/DataBaseConfig.*</exclude>
+                                <exclude>**/ParkingSpot.class</exclude>
+                                <exclude>**/InteractiveShell.class</exclude>
+                                <exclude>**/dao/*</exclude>
+                                <exclude>**/constants/*</exclude>
+                            </excludes>
+                        </configuration>
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
