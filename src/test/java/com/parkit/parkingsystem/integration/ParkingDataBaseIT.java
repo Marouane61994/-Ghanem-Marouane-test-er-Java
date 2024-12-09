@@ -85,6 +85,7 @@ public class ParkingDataBaseIT {
         assertNotNull(ticket);
         assertEquals(7.5,ticket.getPrice(),0.001);
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
+
     }
 
     @Test
@@ -100,6 +101,7 @@ public class ParkingDataBaseIT {
         Ticket ticket = ticketDAO.getTicket(vehicleRegNumber);
 
         assertNotNull(ticket);
+        assertEquals(vehicleRegNumber, ticket.getVehicleRegNumber());
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
         assertEquals(1.5*0.95,ticket.getPrice(),0.001);
         assertTrue(ticketDAO.getNbTicket(vehicleRegNumber) > 1);
