@@ -15,8 +15,7 @@ public class FareCalculatorService {
         // Calculer la durée en millisecondes
         long inTimeMillis = ticket.getInTime().getTime();
         long outTimeMillis = ticket.getOutTime().getTime();
-        // Convertir la durée en heures
-        long durationMillis = (outTimeMillis - inTimeMillis);// Diviser pour obtenir la durée en minute
+        long durationMillis = (outTimeMillis - inTimeMillis);
         // Si la durée est inférieure à 30 minutes, le prix est 0
         if (durationMillis <= 30 * 60 * 1000) {
             ticket.setPrice(0);
